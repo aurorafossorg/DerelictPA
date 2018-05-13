@@ -1,0 +1,17 @@
+name "derelict-pa"
+description "Dynamic bindings to PortAudio for the D Programming Language"
+license "Boost"
+authors "Luís Ferreira"
+targetType "library"
+targetPath "lib"
+targetName "DerelictPA"
+
+configuration "derelict-pa-dynamic" {
+	excludedSourceFiles "source/derelict/portaudio/statfun.d"
+	dependency "derelict-util" version="~>3.0.0-beta.1"
+}
+
+configuration "derelict-pa-static" {
+	excludedSourceFiles "source/derelict/portaudio/dynload.d"
+	versions "DerelictPA_Static"
+}
