@@ -1,0 +1,29 @@
+stages:
+  - build
+
+debug/dmd:
+  image: dlanguage/dmd
+  stage: build
+  script:
+    - "dub build"
+  artifacts:
+    paths:
+      - libs
+
+production/llvm:
+  image: dlanguage/ldc
+  stage: build
+  script:
+    - "dub build"
+  artifacts:
+    paths:
+      - libs
+
+production/gcc:
+  image: dlanguage/gdc
+  stage: build
+  script:
+    - "dub build"
+  artifacts:
+    paths:
+      - libs
